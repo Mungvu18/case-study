@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<!--<audio autoplay loop><source src="ChocoboRacingWin-HoaTau-3316611.mp3"></audio>-->
+<audio id="eatmussic"><source src="bell.mp3"></audio>
+<h1>Game rắn săn mồi</h1>
+<div class="one">
+    <div class="two">
+        <div class="three">Design by</div>
+        <div class="three">Group</div>
+        <div class="three">Ruler Of Game</div>
+        <div class="three">Time</div>
+    </div>
+    <div class="two">
+        <div class="three">Vũ Văn Mừng</div>
+        <div class="three">C1020G2</div>
+        <div class="three"><button>Click Me!</button></div>
+        <div class="three"><label id="minutes">00</label>:<label id="seconds">00</label></div>
+    </div>
+</div>
+<body>
+<script>
+    let minutesLabel = document.getElementById("minutes");
+    let secondsLabel = document.getElementById("seconds");
+    let totalSeconds = 0;
+    setInterval(setTime, 1000);
+    function setTime() {
+        ++totalSeconds;
+        secondsLabel.innerHTML = pad(totalSeconds % 60);
+        minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
+    }
+    function pad(value) {
+        let valueString = value + "";
+        if (valueString.length < 2) {
+            return "0" + valueString;
+        } else {
+            return valueString;
+        }
+    }
+    if(game.snake.endGame()){
+        document.getElementById('eatmussic').play();
+    }
+</script>
+</body>
+<script src="snake.js"></script>
+<script src="food.js"></script>
+<script src="game.js"></script>
+</html>
